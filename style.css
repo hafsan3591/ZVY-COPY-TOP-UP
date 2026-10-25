@@ -1,0 +1,149 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #4a0e0e; /* গাঢ় লাল */
+    --primary-light: #7a1717;
+    --secondary: #1c8bc0; /* নীল */
+    --bg: #f5f6f8;
+    --card-bg: #ffffff;
+    --text: #333333;
+    --text-light: #777777;
+    --border: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
+body { background-color: var(--bg); color: var(--text); padding-bottom: 70px; }
+
+/* Header */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.logo span { color: #ff9800; }
+.header-btns button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Container */
+.container { padding: 15px; max-width: 600px; margin: 0 auto; }
+
+/* Section Steps */
+.step-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.step-num {
+    background: var(--primary);
+    color: white;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 14px;
+}
+
+/* Game Grid */
+.game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; }
+.game-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.game-card:hover, .game-card.active { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.game-card img { width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+.game-card h4 { font-size: 14px; }
+
+/* Recharge Options */
+.recharge-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px; }
+.recharge-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.recharge-card.active { border-color: var(--primary); background: #fff0f0; }
+.recharge-card .amount { font-size: 13px; font-weight: 600; color: var(--text-light); }
+.recharge-card .price { font-weight: 700; color: var(--primary); }
+
+/* Input Section */
+.input-group { background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 25px; }
+.input-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-light); }
+.input-group input {
+    width: 100%; padding: 12px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 16px; outline: none;
+}
+.input-group input:focus { border-color: var(--primary); }
+
+/* Summary & Pay Button */
+.summary-box { background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+.summary-row.total { font-weight: 700; font-size: 16px; border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 8px; }
+.btn-pay {
+    width: 100%; background: var(--secondary); color: white;
+    border: none; padding: 15px; border-radius: 8px;
+    font-size: 16px; font-weight: 600; cursor: pointer;
+}
+.btn-pay:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Payment Methods */
+.payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+.pay-method {
+    background: white; border: 1px solid var(--border);
+    padding: 10px; border-radius: 8px; text-align: center; cursor: pointer;
+}
+.pay-method.active { border-color: var(--secondary); background: #eef8fd; }
+.pay-method img { height: 30px; object-fit: contain; }
+
+/* Bottom Nav */
+.bottom-nav {
+    position: fixed; bottom: 0; width: 100%;
+    background: white; display: flex; justify-content: space-around;
+    padding: 10px 0; border-top: 1px solid var(--border);
+    z-index: 100;
+}
+.nav-item { text-align: center; color: var(--text-light); font-size: 12px; text-decoration: none; }
+.nav-item.active { color: var(--primary); font-weight: 600; }
+.nav-item i { display: block; font-size: 20px; margin-bottom: 2px; }
+
+/* Rules */
+.rules { background: white; padding: 15px; border-radius: 12px; font-size: 14px; line-height: 1.6; color: var(--text-light); margin-bottom: 20px; }
+.rules ul { padding-left: 20px; }
+
+/* Modal */
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 1000; place-items: center;
+}
+.modal-content {
+    background: white; width: 90%; max-width: 400px;
+    padding: 20px; border-radius: 12px; text-align: center;
+}
+.modal-content h3 { color: var(--secondary); margin-bottom: 10px; }
+.modal-content p { font-size: 14px; color: var(--text-light); margin-bottom: 15px; }
+.modal-content button { background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ZVY TOPUP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .admin-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        .admin-list { margin-top: 10px; border: 1px solid #eee; border-radius: 5px; padding: 10px; }
+        .admin-list-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 8px 0; }
+        .delete-btn { color: red; cursor: pointer; background: none; border: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-user-shield"></i> Admin Panel</div>
+        <div class="header-btns">
+            <button onclick="window.location.href='index.html'">Back to Site</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Add Pack Form -->
+        <div class="admin-card">
+            <h3 style="margin-bottom: 15px; color: var(--primary);">নতুন প্যাক যোগ করুন</h3>
+            <div class="form-group">
+                <label>গেম সিলেক্ট করুন</label>
+                <select id="adminGameSelect" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></select>
+            </div>
+            <div class="form-group">
+                <label>প্যাকের নাম (যেমন: 100 Diamonds)</label>
+                <input type="text" id="packName" placeholder="প্যাকের নাম">
+            </div>
+            <div class="form-group">
+                <label>মূল্য (BDT)</label>
+                <input type="number" id="packPrice" placeholder="টাকার পরিমাণ">
+            </div>
+            <button class="admin-btn" onclick="addPack()">প্যাক যোগ করুন</button>
+        </div>
+
+        <!-- Current Packs -->
+        <div class="admin-card">
+            <h3 style="margin-bottom: 15px; color: var(--primary);">বর্তমান প্যাকসমূহ</h3>
+            <div id="adminPackList"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

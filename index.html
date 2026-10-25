@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZVY TOPUP Clone - Free Fire Diamond</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-bolt"></i> ZVY <span>TOP UP</span></div>
+        <div class="header-btns">
+            <button onclick="window.location.href='admin.html'">Admin</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Step 1: Select Game -->
+        <div class="step-title">
+            <div class="step-num">1</div> গেম সিলেক্ট করুন
+        </div>
+        <div class="game-grid" id="gameGrid">
+            <!-- Games will be loaded here via JS -->
+        </div>
+
+        <!-- Step 2: Recharge Options -->
+        <div class="step-title">
+            <div class="step-num">2</div> রিচার্জ সিলেক্ট করুন
+        </div>
+        <div class="recharge-grid" id="rechargeGrid">
+            <!-- Recharges will be loaded here -->
+        </div>
+
+        <!-- Step 3: Account Info -->
+        <div class="step-title">
+            <div class="step-num">3</div> অ্যাকাউন্ট ইনফরমেশন
+        </div>
+        <div class="input-group">
+            <label>Player ID <span style="color:red">*</span></label>
+            <input type="text" id="playerId" placeholder="আপনার গেমের Player ID দিন">
+        </div>
+
+        <!-- Step 4: Payment -->
+        <div class="step-title">
+            <div class="step-num">4</div> পেমেন্ট মেথড
+        </div>
+        <div class="payment-grid" id="paymentGrid">
+            <div class="pay-method active" data-method="bKash">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/BKash_Logo.svg/512px-BKash_Logo.svg.png" alt="bKash">
+                <div style="font-size: 12px; margin-top:5px;">bKash</div>
+            </div>
+            <div class="pay-method" data-method="Nagad">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Nagad_Logo.svg/512px-Nagad_Logo.svg.png" alt="Nagad">
+                <div style="font-size: 12px; margin-top:5px;">Nagad</div>
+            </div>
+            <div class="pay-method" data-method="Rocket">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Rocket_Logo.svg/512px-Rocket_Logo.svg.png" alt="Rocket">
+                <div style="font-size: 12px; margin-top:5px;">Rocket</div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+            <div class="summary-row"><span>সিলেক্টেড গেম:</span> <span id="sumGame">-</span></div>
+            <div class="summary-row"><span>প্যাক:</span> <span id="sumPack">-</span></div>
+            <div class="summary-row total"><span>মোট মূল্য:</span> <span id="sumTotal">0 BDT</span></div>
+        </div>
+
+        <button class="btn-pay" id="payBtn" disabled>লগইন / এখনই কিনুন</button>
+
+        <!-- Rules -->
+        <div class="rules" style="margin-top:20px;">
+            <h4><i class="fa-solid fa-circle-info"></i> নিয়ম ও শর্তাবলী</h4>
+            <ul>
+                <li>প্লেয়ার আইডি সঠিকভাবে দিন। ভুল আইডি দিলে অর্ডার বাতিল হবে না।</li>
+                <li>পেমেন্ট করার পর ট্রানজেকশন আইডি দিন।</li>
+                <li>অর্ডার কমপ্লিট হতে ৫-১০ মিনিট সময় লাগতে পারে।</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i>হোম</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-wallet"></i>এড মানি</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-box"></i>অর্ডার</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-user"></i>প্রোফাইল</a>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check" style="font-size:50px; color:green; margin-bottom:15px;"></i>
+            <h3>অর্ডার সফল হয়েছে!</h3>
+            <p>আপনার অর্ডারটি গ্রহণ করা হয়েছে। ইমেইল বা টেলিগ্রামে কনফার্মেশন পাঠানো হবে।</p>
+            <button onclick="closeModal()">ঠিক আছে</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
